@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from flask import make_response, jsonify
 from flask_mail import Mail
+from flask_cors import CORS
 
 from functools import update_wrapper
 # local import
@@ -19,7 +20,7 @@ def create_app(config_name):
     and connected with the db."""
 
     app = FlaskAPI(__name__, instance_relative_config=True, template_folder="templates")
-
+    CORS(app)
     app.config.from_object(app_config[config_name])
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
