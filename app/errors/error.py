@@ -13,7 +13,6 @@ def not_found_error(error):
     response_object = {
         'message': 'Object not found'
     }
-    print('manenos')
     return make_response(jsonify(response_object)), 404
 
 def method_error(error):
